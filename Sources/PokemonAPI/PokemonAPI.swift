@@ -1,6 +1,6 @@
 import Foundation
 
-enum APIClientError: String, Error{
+public enum APIClientError: String, Error{
     case error400 = "Error 400"
 }
 
