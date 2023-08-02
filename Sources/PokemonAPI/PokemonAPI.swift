@@ -4,12 +4,14 @@ enum APIClientError: String, Error{
     case error400 = "Error 400"
 }
 
+@available(macOS 12.0, *)
 @available(iOS 13.0.0, *)
+
 public class PokemonAPI {
     
     public init(){}
     
-   public func getPokemon(text: String) async throws -> Data {
+    public func getPokemon(text: String) async throws -> Data {
         
         let  url = URL(string: "https://pokeapi.co/api/v2/pokemon/\(text.lowercased())/")!
         let (data, response) = try! await URLSession.shared.data(from: url)
