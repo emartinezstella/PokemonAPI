@@ -11,10 +11,10 @@ public class PokemonAPI {
     
     public init(){}
     
-    public func getPokemon(text: String) async throws -> Data {
+    public func getPokemon(id: String) async throws -> Data {
         
-        let  url = URL(string: "https://pokeapi.co/api/v2/pokemon/\(text.lowercased())/")!
-        let (data, response) = try! await URLSession.shared.data(from: url)
+        let  url = URL(string: "https://pokeapi.co/api/v2/pokemon/\(id.lowercased())/")!
+        let (data, response) = try await URLSession.shared.data(from: url)
         
         guard let httpResponse = response as? HTTPURLResponse,
               httpResponse.statusCode == 200 else {
@@ -23,19 +23,6 @@ public class PokemonAPI {
         
         return data
         
-    }
-    
-   public func getPokemon(withId id: Int) async throws -> Data {
-        
-        let  url = URL(string: "https://pokeapi.co/api/v2/pokemon/\(id)/")!
-        let (data, response) = try! await URLSession.shared.data(from: url)
-        
-        guard let httpResponse = response as? HTTPURLResponse,
-              httpResponse.statusCode == 200 else {
-            throw APIClientError.error400
-        }
-    
-        return data
     }
     
 }
