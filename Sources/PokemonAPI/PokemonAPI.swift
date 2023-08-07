@@ -4,8 +4,6 @@ public enum APIClientError: String, Error{
     case error400 = "Error 400"
 }
 
-@available(iOS 13.0.0, *)
-
 public class PokemonAPI {
     
     public init(){}
@@ -22,7 +20,6 @@ public class PokemonAPI {
         
         let jsonDecoder = JSONDecoder()
         jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-        
         
         return try jsonDecoder.decode(PokemonResponseModel.self, from: data)
         
