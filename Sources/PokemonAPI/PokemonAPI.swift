@@ -11,7 +11,7 @@ public class PokemonAPI {
     
     public init(){}
     
-    public func getPokemon(id: String) async throws -> Data {
+    public func getPokemon(id: String) async throws -> PokemonResponseModel {
         
         let  url = URL(string: "https://pokeapi.co/api/v2/pokemon/\(id.lowercased())/")!
         let (data, response) = try await URLSession.shared.data(from: url)
@@ -21,7 +21,11 @@ public class PokemonAPI {
             throw APIClientError.error400
         }
         
-        return data
+        let jsonDecoder = JSONDecoder()
+        jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+        
+        
+        return try jsonDecoder.decode(PokemonResponseModel.self, from: data)
         
     }
     
