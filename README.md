@@ -12,24 +12,35 @@ class MyViewController: UIViewController {
     
     private let pokemonAPI = PokemonAPI()
     
-    func getPokemon(id: String) async throws -> PokemonResponseModel{
+    func searchPokemon(withText text: String){
+        
+        Task{
+            do{
+                let model = try await pokemonAPI.getPokemon(id: text)
+            }catch {
+                print("Error")
+            }
+           
+        }
+    }
     
+    func getPokemons(from: Int, to: Int) async -> [PokemonResponseModel]{
+        
+        var model : [PokemonResponseModel] = []
+        
+        for i in from...to {
+            
             do{
                 
-                let data = try await pokemonAPI.getPokemon(id: id)
+                let pokemon = try await pokemonAPI.getPokemon(id: "\(i)")
+                model.append(pokemon)
                 
-                let jsonDecoder = JSONDecoder()
-                jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-                
-                return try jsonDecoder.decode(PokemonResponseModel.self, from: data)
-                
-            }catch let error as APIClientError{
-                
-                print(error.rawValue)
-                
-                throw error
-                
+            }catch{
+                print("Error")
             }
-            
+
+        }
+        
+        return model
     }
 ```
