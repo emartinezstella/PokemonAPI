@@ -26,7 +26,7 @@ public struct PokemonResponseModel: Codable {
     public let types: [TypeElement]?
     public let pastTypes: [PastType]?
 
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case id, name
         case baseExperience
         case height
@@ -46,7 +46,7 @@ public struct Ability: Codable {
     public let slot: Int?
     public let ability: Species?
 
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case isHidden
         case slot, ability
     }
@@ -63,7 +63,7 @@ public struct GameIndex: Codable {
     public let gameIndex: Int?
     public let version: Species?
 
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case gameIndex
         case version
     }
@@ -74,7 +74,7 @@ public struct HeldItem: Codable {
     public let item: Species?
     public let versionDetails: [VersionDetail]?
 
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case item
         case versionDetails
     }
@@ -91,7 +91,7 @@ public struct Move: Codable {
     public let move: Species?
     public let versionGroupDetails: [VersionGroupDetail]?
 
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case move
         case versionGroupDetails
     }
@@ -102,7 +102,7 @@ public struct VersionGroupDetail: Codable {
     public let levelLearnedAt: Int?
     public let versionGroup, moveLearnMethod: Species?
 
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case levelLearnedAt
         case versionGroup
         case moveLearnMethod
@@ -134,7 +134,7 @@ public struct Sprites: Codable {
     public let frontShinyFemale: String?
     public let other: Other?
 
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case backDefault
         case backFemale
         case backShiny
@@ -152,7 +152,7 @@ public struct Sprites: Codable {
 public struct GenerationI: Codable {
     public let redBlue, yellow: RedBlue?
 
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case redBlue
         case yellow
     }
@@ -162,7 +162,7 @@ public struct GenerationI: Codable {
 public struct RedBlue: Codable {
     public let backDefault, backGray, frontDefault, frontGray: String?
 
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case backDefault
         case backGray
         case frontDefault
@@ -179,7 +179,7 @@ public struct GenerationIi: Codable {
 public struct Crystal: Codable {
     public let backDefault, backShiny, frontDefault, frontShiny: String?
 
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case backDefault
         case backShiny
         case frontDefault
@@ -192,7 +192,7 @@ public struct GenerationIii: Codable {
     public let emerald: Emerald?
     public let fireredLeafgreen, rubySapphire: Crystal?
 
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case emerald
         case fireredLeafgreen
         case rubySapphire
@@ -203,7 +203,7 @@ public struct GenerationIii: Codable {
 public struct Emerald: Codable {
     public let frontDefault, frontShiny: String?
 
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case frontDefault
         case frontShiny
     }
@@ -216,7 +216,7 @@ public struct Home: Codable {
     public let frontShiny: String?
     public let frontShinyFemale: String?
 
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case frontDefault
         case frontFemale
         case frontShiny
@@ -229,7 +229,7 @@ public struct GenerationVii: Codable {
     public let icons: DreamWorld?
     public let ultraSunUltraMoon: Home?
 
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case icons
         case ultraSunUltraMoon
     }
@@ -240,7 +240,7 @@ public struct DreamWorld: Codable {
     public let frontDefault: String?
     public let frontFemale: String?
 
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case frontDefault
         case frontFemale
     }
@@ -257,7 +257,7 @@ public struct Other: Codable {
     public let home: Home?
     public let officialArtwork: OfficialArtwork?
 
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case dreamWorld
         case home
         case officialArtwork
@@ -268,7 +268,7 @@ public struct Other: Codable {
 public struct OfficialArtwork: Codable {
     public let frontDefault: String?
 
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case frontDefault
     }
 }
@@ -278,7 +278,7 @@ public struct Stat: Codable {
     public let baseStat, effort: Int?
     public let stat: Species?
 
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case baseStat
         case effort, stat
     }
