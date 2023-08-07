@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PokemonResponseModel: Codable {
+public struct PokemonResponseModel: Codable {
     
     let id: Int?
     let name: String?
@@ -41,7 +41,7 @@ struct PokemonResponseModel: Codable {
 }
 
 // MARK: - Ability
-struct Ability: Codable {
+public struct Ability: Codable {
     let isHidden: Bool?
     let slot: Int?
     let ability: Species?
@@ -53,13 +53,13 @@ struct Ability: Codable {
 }
 
 // MARK: - Species
-struct Species: Codable {
+public struct Species: Codable {
     let name: String?
     let url: String?
 }
 
 // MARK: - GameIndex
-struct GameIndex: Codable {
+public struct GameIndex: Codable {
     let gameIndex: Int?
     let version: Species?
 
@@ -70,7 +70,7 @@ struct GameIndex: Codable {
 }
 
 // MARK: - HeldItem
-struct HeldItem: Codable {
+public struct HeldItem: Codable {
     let item: Species?
     let versionDetails: [VersionDetail]?
 
@@ -81,13 +81,13 @@ struct HeldItem: Codable {
 }
 
 // MARK: - VersionDetail
-struct VersionDetail: Codable {
+public struct VersionDetail: Codable {
     let rarity: Int?
     let version: Species?
 }
 
 // MARK: - Move
-struct Move: Codable {
+public struct Move: Codable {
     let move: Species?
     let versionGroupDetails: [VersionGroupDetail]?
 
@@ -98,7 +98,7 @@ struct Move: Codable {
 }
 
 // MARK: - VersionGroupDetail
-struct VersionGroupDetail: Codable {
+public struct VersionGroupDetail: Codable {
     let levelLearnedAt: Int?
     let versionGroup, moveLearnMethod: Species?
 
@@ -110,19 +110,19 @@ struct VersionGroupDetail: Codable {
 }
 
 // MARK: - PastType
-struct PastType: Codable {
+public struct PastType: Codable {
     let generation: Species?
     let types: [TypeElement]?
 }
 
 // MARK: - TypeElement
-struct TypeElement: Codable {
+public struct TypeElement: Codable {
     let slot: Int?
     let type: Species?
 }
 
 // MARK: - GenerationV
-struct GenerationV: Codable {
+public struct GenerationV: Codable {
     let blackWhite: Sprites?
 
     enum CodingKeys: String, CodingKey {
@@ -131,7 +131,7 @@ struct GenerationV: Codable {
 }
 
 // MARK: - GenerationIv
-struct GenerationIv: Codable {
+public struct GenerationIv: Codable {
     let diamondPearl, heartgoldSoulsilver, platinum: Sprites?
 
     enum CodingKeys: String, CodingKey {
@@ -142,7 +142,7 @@ struct GenerationIv: Codable {
 }
 
 // MARK: - Versions
-struct Versions: Codable {
+public struct Versions: Codable {
     let generationI: GenerationI?
     let generationIi: GenerationIi?
     let generationIii: GenerationIii?
@@ -194,7 +194,7 @@ class Sprites: Codable {
 }
 
 // MARK: - GenerationI
-struct GenerationI: Codable {
+public struct GenerationI: Codable {
     let redBlue, yellow: RedBlue?
 
     enum CodingKeys: String, CodingKey {
@@ -204,7 +204,7 @@ struct GenerationI: Codable {
 }
 
 // MARK: - RedBlue
-struct RedBlue: Codable {
+public struct RedBlue: Codable {
     let backDefault, backGray, frontDefault, frontGray: String?
 
     enum CodingKeys: String, CodingKey {
@@ -216,12 +216,12 @@ struct RedBlue: Codable {
 }
 
 // MARK: - GenerationIi
-struct GenerationIi: Codable {
+public struct GenerationIi: Codable {
     let crystal, gold, silver: Crystal?
 }
 
 // MARK: - Crystal
-struct Crystal: Codable {
+public struct Crystal: Codable {
     let backDefault, backShiny, frontDefault, frontShiny: String?
 
     enum CodingKeys: String, CodingKey {
@@ -233,7 +233,7 @@ struct Crystal: Codable {
 }
 
 // MARK: - GenerationIii
-struct GenerationIii: Codable {
+public struct GenerationIii: Codable {
     let emerald: Emerald?
     let fireredLeafgreen, rubySapphire: Crystal?
 
@@ -245,7 +245,7 @@ struct GenerationIii: Codable {
 }
 
 // MARK: - Emerald
-struct Emerald: Codable {
+public struct Emerald: Codable {
     let frontDefault, frontShiny: String?
 
     enum CodingKeys: String, CodingKey {
@@ -255,7 +255,7 @@ struct Emerald: Codable {
 }
 
 // MARK: - Home
-struct Home: Codable {
+public struct Home: Codable {
     let frontDefault: String?
     let frontFemale: String?
     let frontShiny: String?
@@ -270,7 +270,7 @@ struct Home: Codable {
 }
 
 // MARK: - GenerationVii
-struct GenerationVii: Codable {
+public struct GenerationVii: Codable {
     let icons: DreamWorld?
     let ultraSunUltraMoon: Home?
 
@@ -281,7 +281,7 @@ struct GenerationVii: Codable {
 }
 
 // MARK: - DreamWorld
-struct DreamWorld: Codable {
+public struct DreamWorld: Codable {
     let frontDefault: String?
     let frontFemale: String?
 
@@ -292,12 +292,12 @@ struct DreamWorld: Codable {
 }
 
 // MARK: - GenerationViii
-struct GenerationViii: Codable {
+public struct GenerationViii: Codable {
     let icons: DreamWorld?
 }
 
 // MARK: - Other
-struct Other: Codable {
+public struct Other: Codable {
     let dreamWorld: DreamWorld?
     let home: Home?
     let officialArtwork: OfficialArtwork?
@@ -310,7 +310,7 @@ struct Other: Codable {
 }
 
 // MARK: - OfficialArtwork
-struct OfficialArtwork: Codable {
+public struct OfficialArtwork: Codable {
     let frontDefault: String?
 
     enum CodingKeys: String, CodingKey {
@@ -319,7 +319,7 @@ struct OfficialArtwork: Codable {
 }
 
 // MARK: - Stat
-struct Stat: Codable {
+public struct Stat: Codable {
     let baseStat, effort: Int?
     let stat: Species?
 
