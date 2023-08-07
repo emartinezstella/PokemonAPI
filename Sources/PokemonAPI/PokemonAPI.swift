@@ -4,7 +4,6 @@ public enum APIClientError: String, Error{
     case error400 = "Error 400"
 }
 
-@available(macOS 12.0, *)
 @available(iOS 13.0.0, *)
 
 public class PokemonAPI {
